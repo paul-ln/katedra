@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="left">
+    <div class="header">
+      <h2 class="animation a1">Content de te revoir </h2>
+      <h4 class="animation a2">Connecte toi en utilisant ton pseudonyme et ton mot de passe.</h4>
+    </div>
+    <div class="form">
+      <form class="form" (submit)="onFormSubmit(emailInput.value, passwordInput.value);">
+        <input class="form-field animation a3" placeholder="Pseudonyme" #emailInput>
+        <input type="password" class="form-field animation a4" placeholder="Mot de passe" #passwordInput>
+        <p class="animation a5"><a id="create" href="#">Se créer un compte</a></p>
+        <button class="animation a6">Se connecter</button>
+        <p style="color:red" class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+      </form>
+    </div>
+  </div>
+  <div class="right"></div>
+</div>

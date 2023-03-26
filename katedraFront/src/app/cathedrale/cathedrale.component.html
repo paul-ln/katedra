@@ -1,0 +1,21 @@
+<app-header></app-header>
+<h1 id="test">Les Cathédrales : </h1>
+
+<img id='but' (click)="listView()" src="./assets/four-squares.png" alt="">
+<div class="search-box">
+  <button class="btn-search"><img src="assets/search.png" alt="srchbar" width="90%"></button>
+  <input type="text" class="input-search" placeholder="Rechercher une cathédrale" [(ngModel)]="searchTerm" (input)="filteredCathedrales()">
+</div>
+
+<div class="cathedrales-wrapper">
+
+  <div *ngFor="let cathedrale of filteredCathedrales()" [ngClass]="{'cathedrale': true, 'not-validated': !cathedrale.valide}">
+    <h2 style="font-family: 'Josefin Sans', sans-serif;
+">{{ cathedrale.nom }}</h2>
+    <p>{{ cathedrale.ville }}, {{ cathedrale.departement }}</p>
+    <p *ngIf="cathedrale.valide">Déjà visité</p>
+    <p *ngIf="!cathedrale.valide">Pas encore visité</p>
+
+    <button class="button" (click)="toggleValidee(cathedrale)">Visité</button>
+  </div>
+</div>
